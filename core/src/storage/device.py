@@ -48,7 +48,11 @@ if False:
 # fmt: on
 
 HOMESCREEN_MAXSIZE = 16384
-AUTOLOCK_DELAY_MINIMUM = 60 * 1000  # 1 minute
+
+if __debug__:
+    AUTOLOCK_DELAY_MINIMUM = 10 * 1000  # 10 seconds
+else:
+    AUTOLOCK_DELAY_MINIMUM = 60 * 1000  # 1 minute
 AUTOLOCK_DELAY_DEFAULT = 10 * 60 * 1000  # 10 minutes
 # autolock intervals larger than AUTOLOCK_DELAY_MAXIMUM cause issues in the scheduler
 AUTOLOCK_DELAY_MAXIMUM = 0x2000_0000  # ~6 days
